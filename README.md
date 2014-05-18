@@ -1,4 +1,4 @@
-Polaris-Chrome-App
+Polaris Chrome App
 ==================
 
 Polaris - PERT (Program Evaluation and Review Technique)
