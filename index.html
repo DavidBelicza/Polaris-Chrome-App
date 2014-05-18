@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en-EN">
+    <head>
+        <meta name="viewport" content="width=device-width user-scalable=0">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Polaris Evaluation Calculator</title>
+        <meta name="description" content="Evaluation Calculator web app by YOUAMA.COM, based on U.S army's Polaris PERT algorithm." />
+        <meta name="keywords" content="youama, software, web, app, calculator, engineering, polaris, pert">
+        <link rel="canonical" href="http://polaris-evaluation-calculator.youama.com" />
+        <link rel="icon" href="http://www.youama.com/favicon.ico">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery-ui.js"></script>
+        <script type="text/javascript" src="pert.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <h1>Polaris Evaluation Calculator</h1>
+                <p>PERT - Program Evaluation and Review Technique</p>
+                <span>YOUAMA Software</span>
+            </div>
+            <div class="inside">
+                <div class="pert">
+                    <div class="description">
+                        <p>Please, type the pessimistic, normal and optimistic hours, then push the Calculate button. The URL will changing and you can save the full list via URL when the list has been calculated. <a target="_blank" href="#">Your link</a></a></p>
+                    </div>
+                    <div class="result">
+                        <p class="evaluation">Evaluation: <span></span></p>
+                        <p class="uncertainty">Uncertainty index: <span></span></p>
+                        <p class="finalresult"><span>Most likely Evaluation:</span><span class="value"></span></p>
+                    </div>
+
+                    <div class="line base">
+                        <div class="fields buttons">
+                            <p class="plus">Add</p>
+                            <p class="minus">Remove</p>
+                        </div>
+                        <div class="fields input item-title">
+                            <input type="text" placeholder="Title" />
+                        </div>
+                        <div class="fields input float optimistic">
+                            <input type="text" placeholder="Optimistic" />
+                        </div>
+                        <div class="fields input float normal">
+                            <input type="text" placeholder="Normal" />
+                        </div>
+                        <div class="fields input float pessimistic">
+                            <input type="text" placeholder="Pessimistic" />
+                        </div>
+                        <div class="fields u">
+                            <span>Evaluation: </span>
+                            <p></p>
+                        </div>
+                        <div class="fields o">
+                            <span>Uncertainty: </span>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="ok-wrap">
+                        <div class="ok">
+                            Calculate
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>This Evaluation Calculator based on PERT algorithm of U.S Army's Polaris from 1957. This is an accepted technique to evaluate in Software Engineering Science.</p>
+                <p>Made by <a href="http://www.youama.com" target="_blank">YOUAMA.COM</a>, all rights reserved.</p>
+                <p class="image">
+                    <a href="http://www.youama.com" target="_blank">
+                        <img title="PERT by YOUAMA.COM" src="youama.png" />
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    jQuery('.plus, .minus').css('padding', '5%');
+                    jQuery('.ok').css('padding-top', '5%');
+                    jQuery('.ok').css('padding-bottom', '5%');
+                }
+
+
+                var color = '';
+                var choose = Math.floor((Math.random()*10)+1);
+                if (choose%2 == 0) {
+                    color = '#99cc00';
+                } else {
+                    color = '#ff5500';
+                }
+                jQuery('.header').css('background-color', color);
+                jQuery().pertEvaluate();
+            });
+        </script>
+    </body>
+</html>
